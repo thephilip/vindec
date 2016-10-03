@@ -1,12 +1,15 @@
 {
   "name": "vindec",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "VIN Decoder",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["vin", "decode"],
+  "keywords": [
+    "vin",
+    "decode"
+  ],
   "author": {
     "name": "Philip Smith",
     "email": "thephilipsmith+npm@gmail.com"

@@ -7,8 +7,10 @@
 const vv = require('vin-validator');
 const regionJSON = require('./region.json');
 const makeJSON = require('./manufacturer.json');
+const yearJSON = require('./year.json');
 const region = JSON.parse(JSON.stringify(regionJSON));
 const make = JSON.parse(JSON.stringify(makeJSON));
+const year = JSON.parse(JSON.stringify(yearJSON));
 
 let wmiRegion = function wmiRegion(wmi) {
 	return region[wmi] ? region[wmi] : undefined;
@@ -22,18 +24,23 @@ let wmiMake = function wmiMake(wmi) {
 	}
 }
 
+let visYear = function visYear(type, vis) {
+	let regex = new RegExp(/^[0-9]+$/i);
+	return type.match(regex) ? year[vis] - 30 : year[vis];
+}
+
 module.exports.decode = function decode(vin) {
 	// accepts: vin string
 	// returns: vin object
 	let valid = vv.validate(vin);
 
 	if (!valid) {
-		 return new Error('Invalid VIN');
+		 return undefined;
 	}
 
 	let vindecated = { 
 		vin: vin.toUpperCase(),
-		expanded: [ // break apart the vin
+		chunks: [ // break apart the vin
 			vin.slice(0,3), // WMI
 			vin.slice(3,8), // VDS
 			vin.slice(8,9), // Check Digit
@@ -52,6 +59,11 @@ module.exports.decode = function decode(vin) {
 	if (!vindecated.make) {
 		vindecated.make = wmiMake(vin.slice(0,2));
 	}
+
+	// get year
+	vindecated.year = visYear(vin.slice(6,7), vin.slice(9,10));
+
+	// ...
 
 	return vindecated;
 };

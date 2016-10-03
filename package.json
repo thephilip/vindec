@@ -1,0 +1,20 @@
+{
+  "name": "vindec",
+  "version": "1.0.2",
+  "description": "VIN Decoder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Philip Smith",
+    "email": "thephilipsmith+npm@gmail.com"
+  },
+  "homepage": "https://github.com/thephilip/vindec",
+  "bugs": "https://github.com/thephilip/vindec/issues",
+  "license": "MIT",
+  "dependencies": {
+    "vin-validator": "^1.0.0"
+  }
+}

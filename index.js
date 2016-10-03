@@ -25,8 +25,8 @@ let wmiMake = function wmiMake(wmi) {
 }
 
 let visYear = function visYear(type, vis) {
-	let regex = new RegExp(/^[0-9]+$/i);
-	return type.match(regex) ? year[vis] - 30 : year[vis];
+	// if position 7 of VIN is number subtract 30 from year
+	return type.match(/^[0-9]+$/i) ? year[vis] - 30 : year[vis];
 }
 
 module.exports.decode = function decode(vin) {

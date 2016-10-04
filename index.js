@@ -25,7 +25,7 @@ let wmiMake = function wmiMake(wmi) {
 }
 
 let visYear = function visYear(type, vis) {
-	// if position 7 of VIN is number subtract 30 from year
+	// position 7 is a number
 	return type.match(/^[0-9]+$/) ? year[vis] - 30 : year[vis];
 }
 
@@ -62,6 +62,9 @@ module.exports.decode = function decode(vin) {
 
 	// get year
 	vindecated.year = visYear(vin.slice(6,7), vin.slice(9,10));
+
+	// set sequence id
+	vindecated.sequence_id = vin.slice(11,17);
 
 	// ...
 

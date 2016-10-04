@@ -14,3 +14,4 @@ let vin = vindec.decode('12345678901234567'); // not a valid vin
 * Region (```vin.region```) Manufactured Locale
 * Make (```vin.make```) Manufacturer
 * Year (```vin.year```) Manfacture Year
+* Sequence ID (```vin.sequence_id```) Sequence Production Number (testing)

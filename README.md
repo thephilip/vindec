@@ -5,6 +5,7 @@
 ## Installation
 [![NPM](https://nodei.co/npm/vindec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vindec/)
 
+## Usage
 ```javascript
 // require and process a vin
 let vindec = require('vindec');

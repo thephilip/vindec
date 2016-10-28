@@ -1,8 +1,9 @@
+![Vindec](https://github.com/thephilip/vindec/blob/master/V.PNG)
 # vindec
 ###### Node.js VIN decoding package.
 
 ## Installation
-    $ npm install --save vindec
+[![NPM](https://nodei.co/npm/vindec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vindec/)
 
 ```javascript
 // require and process a vin

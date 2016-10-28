@@ -1,5 +1,5 @@
 ![Vindec](https://github.com/thephilip/vindec/blob/master/V.PNG)
-# vindec
+# Vindec
 ###### Node.js VIN decoding package.
 
 ## Installation

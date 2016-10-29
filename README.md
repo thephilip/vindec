@@ -23,6 +23,7 @@ const vin = V.decode('WDDHF5KB6FB102113', function(err, result) {
 });
 
 console.log('Data: ' + JSON.stringify(vin));
+```
 
 ## Information Decoded
 ```json

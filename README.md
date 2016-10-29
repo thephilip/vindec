@@ -26,7 +26,7 @@ console.log('Data: ' + JSON.stringify(vin));
 ```
 
 ## Information Decoded
-```json
+```javascript
 { vin: '12345678901234567',
   valid: true,
   wmi: '123',

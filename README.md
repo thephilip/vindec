@@ -4,6 +4,7 @@
 
 ## Installation
 [![NPM](https://nodei.co/npm/vindec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vindec/)
+Unfortunately v2+ breaks original functionality.  You must now create an instance of Vindec.  If you prefer the previous version of this module, please use `npm install vindec@1.1.1`.
 
 ## Usage
 ```javascript

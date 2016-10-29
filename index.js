@@ -1,72 +1,61 @@
 /* 
- *	vindec - Vehicle Identification Number decoder
+ *	vindec - Vehicle Identification Number DECoder
  *
  */
 'use strict';
 
-const vv = require('vin-validator');
-const regionJSON = require('./region.json');
-const makeJSON = require('./manufacturer.json');
-const yearJSON = require('./year.json');
-const region = JSON.parse(JSON.stringify(regionJSON));
-const make = JSON.parse(JSON.stringify(makeJSON));
-const year = JSON.parse(JSON.stringify(yearJSON));
+const Validator = require('vin-validator');
+const region = JSON.parse(JSON.stringify(require('./json/region.json')));
+const make = JSON.parse(JSON.stringify(require('./json/manufacturer.json')));
+const year = JSON.parse(JSON.stringify(require('./json/year.json')));
 
-let wmiRegion = function wmiRegion(wmi) {
-	return region[wmi] ? region[wmi] : undefined;
-}
+const internals = {};
 
-let wmiMake = function wmiMake(wmi) {
-	if (!(make[wmi])) {
-		return undefined;
-	} else {
-		return make[wmi] ? make[wmi] : make[wmi.slice(0,2)];
+exports = module.exports = internals.Vindec = function() {
+	this.validate = Validator.validate;
+	this.getRegion = function(wmi) {
+		return region[wmi] ? region[wmi] : undefined;
+	}
+
+	this.getMake = function(wmi) {
+		if (!(make[wmi])) {
+			return undefined;
+		} else {
+			return make[wmi] ? make[wmi] : make[wmi.slice(0,2)];
+		}
+	}
+
+	this.getYear = function(type, vis) {
+		return type.match(/^[0-9]+$/) ? year[vis] - 30 : year[vis];
 	}
 }
 
-let visYear = function visYear(type, vis) {
-	// position 7 is a number
-	return type.match(/^[0-9]+$/) ? year[vis] - 30 : year[vis];
-}
-
-module.exports.decode = function decode(vin) {
-	// accepts: vin string
-	// returns: vin object
-	let valid = vv.validate(vin);
-
+internals.Vindec.prototype.decode = function(vin, callback) {
+	const valid = this.validate(vin) ? true : false;
 	if (!valid) {
-		 return undefined;
+		return callback(new Error('Validation Failed'), { vin: vin, valid: valid });
 	}
 
-	let vindecated = { 
+	const vindecated = { 
 		vin: vin.toUpperCase(),
-		chunks: [ // break apart the vin
-			vin.slice(0,3), // WMI
-			vin.slice(3,8), // VDS
-			vin.slice(8,9), // Check Digit
-			vin.slice(9,17) // VIS
-		]
+		valid: true,
+		wmi: vin.toUpperCase().slice(0,3),
+		vds: vin.toUpperCase().slice(3,8),
+		checkDigit: vin.toUpperCase().slice(8,9),
+		vis: vin.toUpperCase().slice(9,17),
+		region: this.getRegion(vin.slice(0,2)),
+		make: this.getMake(vin.slice(0,3)),
+		year: this.getYear(vin.slice(6,7), vin.slice(9,10)),
+		sequence_id: vin.slice(11,17)
 	};
 
-	// get region
-	vindecated.region = wmiRegion(vin.slice(0,2));
 	if (!vindecated.region) {
-		wmiRegion(vin.slice(0,3));
+		vindecated.region = this.getRegion(vin.slice(0,3));
 	}
 
-	// get make
-	vindecated.make = wmiMake(vin.slice(0,3));
 	if (!vindecated.make) {
-		vindecated.make = wmiMake(vin.slice(0,2));
+		vindecated.make = this.getMake(vin.slice(0,2));
 	}
-
-	// get year
-	vindecated.year = visYear(vin.slice(6,7), vin.slice(9,10));
-
-	// set sequence id
-	vindecated.sequence_id = vin.slice(11,17);
-
-	// ...
 
 	return vindecated;
 };

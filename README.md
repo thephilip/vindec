@@ -1,5 +1,5 @@
 ![Vindec](https://github.com/thephilip/vindec/blob/master/V.PNG)
-# Vindec
+# vindec
 ###### Node.js VIN decoding package.
 
 ## Installation
@@ -7,13 +7,36 @@
 
 ## Usage
 ```javascript
-// require and process a vin
-let vindec = require('vindec');
-let vin = vindec.decode('12345678901234567'); // not a valid vin
+// create instance
+const Vindec = require('vindec');
+const V = new Vindec();
+
+// decode a VIN; returns an object if valid
+const vin = V.decode('WDDHF5KB6FB102113', function(err, result) {
+	if (err) {
+		console.log('Error: ' + err.message);
+		return {
+			vin: result.vin,
+			valid: result.valid
+		};
+	}
+});
+
+console.log('Data: ' + JSON.stringify(vin));
+
+## Information Decoded
+```json
+{ vin: '12345678901234567',
+  valid: true,
+  wmi: '123',
+  vds: '5678',
+  checkDigit: '9',
+  vis: '01234567',
+  region: 'Somewhere Around Here',
+  make: 'UFO',
+  year: '1776',
+  sequence_id: '234567' }
 ```
 
-## Information Decoded (WIP)
-* Region (```vin.region```) Manufactured Locale
-* Make (```vin.make```) Manufacturer
-* Year (```vin.year```) Manfacture Year
-* Sequence ID (```vin.sequence_id```) Sequence Production Number
+## Future Extension
+I am planning on a plugin to alternatively fetch VIN data using the NHTSA API.

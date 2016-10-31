@@ -15,13 +15,13 @@ const V = new Vindec();
 
 // decode a VIN; returns an object if valid
 const vin = V.decode('WDDHF5KB6FB102113', function(err, result) {
-	if (err) {
-		console.log('Error: ' + err.message);
-		return {
-			vin: result.vin,
-			valid: result.valid
-		};
-	}
+  if (err) {
+    console.log('Error: ' + err.message);
+    return {
+      vin: result.vin,
+      valid: result.valid
+    };
+  }
 });
 
 console.log('Data: ' + JSON.stringify(vin));

@@ -4,6 +4,7 @@
  */
 'use strict';
 
+const dic = require('./lib/dic.js');
 const Validator = require('vin-validator');
 const region = JSON.parse(JSON.stringify(require('./json/region.json')));
 const make = JSON.parse(JSON.stringify(require('./json/manufacturer.json')));

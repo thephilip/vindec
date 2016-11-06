@@ -13,8 +13,11 @@ Unfortunately version 2 is a breaking change.  You must now create an instance o
 const Vindec = require('vindec');
 const V = new Vindec();
 
+// validate a VIN (requires 'vin-validator' npm package)
+V.validate('12345678901234567');
+
 // decode a VIN; returns an object if valid
-const vin = V.decode('WDDHF5KB6FB102113', function(err, result) {
+const vin = V.decode('12345678901234567', function(err, result) {
   if (err) {
     console.log('Error: ' + err.message);
     return {

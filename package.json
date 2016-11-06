@@ -1,6 +1,6 @@
 {
   "name": "vindec",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "VIN Decoder",
   "main": "index.js",
   "scripts": {

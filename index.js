@@ -12,7 +12,6 @@ const year = JSON.parse(JSON.stringify(require('./json/year.json')));
 const internals = {};
 
 exports = module.exports = internals.Vindec = function() {
-	this.validate = Validator.validate;
 	this.getRegion = function(wmi) {
 		return region[wmi] ? region[wmi] : undefined;
 	}
@@ -29,6 +28,8 @@ exports = module.exports = internals.Vindec = function() {
 		return type.match(/^[0-9]+$/) ? year[vis] - 30 : year[vis];
 	}
 }
+
+internals.Vindec.prototype.validate = Validator.validate;
 
 internals.Vindec.prototype.decode = function(vin, callback) {
 	const valid = this.validate(vin) ? true : false;

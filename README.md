@@ -5,19 +5,18 @@
 ## Installation
 [![NPM](https://nodei.co/npm/vindec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vindec/)
 
-Unfortunately version 2 is a breaking change.  You must now create an instance of Vindec.  If you prefer the previous version of this module, please use `npm install vindec@1.1.1`.
+If you prefer the previous version of this module, please use `npm install vindec@1.1.1`.  The current version creates a constructor, but the functionality is the same.
 
 ## Usage
 ```javascript
 // create instance
 const Vindec = require('vindec');
-const V = new Vindec();
 
 // validate a VIN (requires 'vin-validator' npm package)
-V.validate('12345678901234567');
+Vindec.validate('12345678901234567');
 
 // decode a VIN; returns an object if valid
-const vin = V.decode('12345678901234567', function(err, result) {
+const vin = Vindec.decode('12345678901234567', function(err, result) {
   if (err) {
     console.log('Error: ' + err.message);
     return {

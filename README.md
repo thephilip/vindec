@@ -17,7 +17,6 @@ Vindec.validate('12345678901234567');
 
 // decode a VIN; returns an object if valid
 const vin = Vindec.decode('12345678901234567', function(err, result) {
-
   if (err) {
     console.log('Error: ' + err.message);
     return {

@@ -15,9 +15,6 @@ const Vindec = require('vindec');
 // validate a VIN (requires 'vin-validator' npm package)
 Vindec.validate('12345678901234567');
 
-// validate a VIN (requires 'vin-validator' npm package)
-V.validate('12345678901234567'); // false
-
 // decode a VIN; returns an object if valid
 const vin = Vindec.decode('12345678901234567', function(err, result) {
 

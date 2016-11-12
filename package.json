@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "vindec",
   "version": "2.1.1",
   "description": "VIN Decoder",
@@ -20,4 +21,27 @@
   "dependencies": {
     "vin-validator": "1.0.0"
   }
+=======
+    "name": "vindec",
+    "version": "2.0.2",
+    "description": "VIN Decoder",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "vin",
+        "decode"
+    ],
+    "author": {
+        "name": "Philip Smith",
+        "email": "thephilipsmith+npm@gmail.com"
+    },
+    "homepage": "https://github.com/thephilip/vindec",
+    "bugs": "https://github.com/thephilip/vindec/issues",
+    "license": "MIT",
+    "dependencies": {
+        "vin-validator": "1.0.0"
+    }
+>>>>>>> plugin-integration
 }

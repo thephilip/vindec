@@ -42,6 +42,3 @@ console.log('Data: ' + JSON.stringify(vin));
   year: '1776',
   sequence_id: '234567' }
 ```
-
-## Future Extension
-I am planning on a plugin to alternatively fetch VIN data using the NHTSA API.

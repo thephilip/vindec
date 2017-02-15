@@ -42,3 +42,6 @@ console.log('Data: ' + JSON.stringify(vin));
   year: '1776',
   sequence_id: '234567' }
 ```
+
+## NHTSA Plugin
+VIN validation and additional information may be pulled from the NHTSA/safercar.gov public API.  More information [here](https://github.com/thephilip/vindec-nhtsa).

@@ -1,4 +1,3 @@
-![Vindec](https://github.com/thephilip/vindec/blob/master/V.PNG)
 # vindec
 ###### Node.js VIN decoding package.
 

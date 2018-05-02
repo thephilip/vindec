@@ -26,9 +26,6 @@ class Vindec {
       }) : { vin: vin, valid: false }
 
   }
-  nhtsa(vin, callback) {
-    return this.valid
-  }
 }
 
 module.exports = new Vindec()

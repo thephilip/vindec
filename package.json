@@ -18,6 +18,7 @@
   "bugs": "https://github.com/thephilip/vindec/issues",
   "license": "MIT",
   "dependencies": {
+    "node-fetch": "^2.1.2",
     "vin-validator": "1.0.0"
   }
 }

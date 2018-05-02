@@ -1,5 +1,4 @@
 
-const fetch = require('node-fetch')
 const lib = require('./lib')
 
 class Vindec {
@@ -26,9 +25,6 @@ class Vindec {
           sequence_id: vin.slice(11,17)
       }) : { vin: vin, valid: false }
 
-  }
-  nhtsa(vin, callback) {
-    return this.valid
   }
 }
 

@@ -1,5 +1,4 @@
 
-const fetch = require('node-fetch')
 const lib = require('./lib')
 
 class Vindec {

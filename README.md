@@ -8,25 +8,16 @@ If you prefer the previous version of this module, please use `npm install vinde
 
 ## Usage
 ```javascript
-// create instance
-const Vindec = require('vindec');
 
-// validate a VIN (requires 'vin-validator' npm package)
-Vindec.validate('12345678901234567');
+const vindec = require('vindec');
 
-// decode a VIN; returns an object if valid
-const vin = Vindec.decode('12345678901234567', function(err, result) {
-  if (err) {
-    console.log('Error: ' + err.message);
-    return {
-      vin: result.vin,
-      valid: result.valid
-    };
-  }
-});
+console.log(`Valid: ${vindec.validate('YOURMOM')}`) // false
 
-console.log('Data: ' + JSON.stringify(vin));
+console.log(vindec.decode('meh') // { vin: 'meh', valid: false }
+
 ```
+
+You may optionally add a callback as a second argument to decode for error checking as in the past, but it has been simplified and will always return an object.
 
 ## Information Decoded
 ```javascript
@@ -42,5 +33,7 @@ console.log('Data: ' + JSON.stringify(vin));
   sequence_id: '234567' }
 ```
 
-## NHTSA Plugin
-VIN validation and additional information may be pulled from the NHTSA/safercar.gov public API.  More information [here](https://github.com/thephilip/vindec-nhtsa).
+## NHTSA Plugin (soon to be deprecated!)
+I will be adding the functionality from this plugin to this package in the future.  In hindsight, I see maintaining the plugin architecture in its current, poor implementation makes the two packages too tightly coupled.  Stay tuned!  More information can be found at the package repository.
+
+ [vindec-nhtsa](https://github.com/thephilip/vindec-nhtsa).

@@ -1,14 +1,16 @@
+
 {
   "name": "vindec",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "description": "VIN Decoder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\" && exit 1"
   },
   "keywords": [
     "vin",
-    "decode"
+    "decoder",
+    "validator"
   ],
   "author": {
     "name": "Philip Smith",
@@ -18,7 +20,6 @@
   "bugs": "https://github.com/thephilip/vindec/issues",
   "license": "MIT",
   "dependencies": {
-    "vin-validator": "1.0.0",
     "vindec-validator": "^1.0.1"
   }
 }

@@ -13,7 +13,7 @@ const vindec = require('vindec');
 
 console.log(`Valid: ${vindec.validate('YOURMOM')}`) // false
 
-console.log(vindec.decode('meh') // { vin: 'meh', valid: false }
+console.log(JSON.stringify(vindec.decode('meh'))) // { vin: 'meh', valid: false }
 
 ```
 

@@ -23,7 +23,7 @@ class Vindec {
           make: lib.getMake(vin.slice(0,3)),
           year: lib.getYear(vin.slice(6,7), vin.slice(9,10)),
           sequence_id: vin.slice(11,17)
-      }) : { vin: vin, valid: false }
+      }) : JSON.stringify({ vin: vin, valid: false })
 
   }
 }

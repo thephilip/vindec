@@ -3,7 +3,7 @@ const lib = require('./lib')
 
 class Vindec {
   constructor(vin, callback) {
-    this.vin = '12345678901234567'
+    this.vin = 'IQIQIQIQIQIQIQIQQ'
     this.callback = () => {}
     this.vindecated = {}
   }

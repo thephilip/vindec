@@ -1,11 +1,10 @@
 
 {
   "name": "vindec",
-  "version": "2.5.1",
+  "version": "2.6.0",
   "description": "VIN Decoder",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"No test specified\" && exit 1"
   },
   "keywords": [
     "vin",

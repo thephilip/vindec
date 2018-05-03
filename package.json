@@ -1,11 +1,9 @@
-
 {
   "name": "vindec",
   "version": "2.6.3",
   "description": "VIN Decoder",
   "main": "index.js",
-  "scripts": {
-  },
+  "scripts": {},
   "keywords": [
     "vin",
     "decoder",
@@ -19,6 +17,7 @@
   "bugs": "https://github.com/thephilip/vindec/issues",
   "license": "MIT",
   "dependencies": {
+    "node-fetch": "^2.1.2",
     "vindec-validator": "^1.1.0"
   }
 }

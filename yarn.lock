@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-vin-validator@1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vin-validator/-/vin-validator-1.0.0.tgz#1765626b8558b2402f77b6c25c7617f73cecae67"
-
-vindec-validator@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/vindec-validator/-/vindec-validator-1.0.1.tgz#913069fb4d453035f73bdd9666876057e3697f02"
+vindec-validator@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/vindec-validator/-/vindec-validator-1.1.0.tgz#7b7514e7fa3591bb28dff9fc3ef7882391f82e59"

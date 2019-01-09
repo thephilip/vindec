@@ -10,9 +10,7 @@ If you prefer the previous version of this module, please use `npm install vinde
 ```javascript
 
 const vindec = require('vindec');
-
 console.log(`Valid: ${vindec.validate('YOURMOM')}`) // false
-
 console.log(JSON.stringify(vindec.decode('meh'))) // { vin: 'meh', valid: false }
 
 ```
@@ -33,7 +31,10 @@ You may optionally add a callback as a second argument to decode for error check
   sequence_id: '234567' }
 ```
 
-## NHTSA Plugin (soon to be deprecated!)
-I will be adding the functionality from this plugin to this package in the future.  In hindsight, I see maintaining the plugin architecture in its current, poor implementation makes the two packages too tightly coupled.  Stay tuned!  More information can be found at the package repository.
+## NHTSA Decode (alpha)
+There is a new vindec method, nhtsaDecode, that is currently in alpha stage (barely working).  It currently fetches the JSON decoded information from the NHTSA api, but it's truncated.  It likely needs to stream the data and I would also like to allow for the fetching of different repsonse formats (i.e.: json, xml, csv).  If anyone would like to help, I'll be opening issues for each of these features.
 
- [vindec-nhtsa](https://github.com/thephilip/vindec-nhtsa).
+## Usage
+```javascript
+  console.log(vindec.nhtsaDecode('11111111111111111'))
+```

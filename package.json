@@ -11,13 +11,13 @@
   ],
   "author": {
     "name": "Philip Smith",
-    "email": "thephilipsmith+npm@gmail.com"
+    "email": "thephilipsmith@gmail.com"
   },
   "homepage": "https://github.com/thephilip/vindec",
   "bugs": "https://github.com/thephilip/vindec/issues",
   "license": "MIT",
   "dependencies": {
-    "node-fetch": "^2.1.2",
-    "vindec-validator": "^1.1.0"
+    "node-fetch": "^2.3.0",
+    "vindec-validator": "^1.1.3"
   }
 }

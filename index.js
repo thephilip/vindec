@@ -2,8 +2,6 @@
 const lib = require('./lib')
 const api = require('./lib/nhtsa.js')
 const axios = require('axios')
-//const fetch = require('node-fetch')
-const https = require('https')
 
 class Vindec {
   constructor(vin, callback) {
@@ -29,16 +27,15 @@ class Vindec {
           sequence_id: vin.slice(11,17)
       }) : { vin: vin, valid: false }
   }
-  nhtsa(vin) {
+  nhtsaDecode(vin) {
     let uri = `${api.uri}${api.action}${vin}${api.format.json}`
 
-    lib.fetch(uri)
-      .then(data => {
-        let parsed = JSON.parse(data)
-        let results = parsed['Results'].map(item => {
-          // console.log(item)
-        })
-
+    axios.get(uri)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.error(error)
       })
   }
 }

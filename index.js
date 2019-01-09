@@ -1,9 +1,11 @@
 
 const lib = require('./lib')
+const api = require('./lib/nhtsa.js')
+const axios = require('axios')
 
 class Vindec {
   constructor(vin, callback) {
-    this.vin = 'IQIQIQIQIQIQIQIQQ'
+    this.vin = ''
     this.callback = () => {}
     this.vindecated = {}
   }
@@ -24,7 +26,17 @@ class Vindec {
           year: lib.getYear(vin.slice(6,7), vin.slice(9,10)),
           sequence_id: vin.slice(11,17)
       }) : { vin: vin, valid: false }
+  }
+  nhtsaDecode(vin) {
+    let uri = `${api.uri}${api.action}${vin}${api.format.json}`
 
+    axios.get(uri)
+      .then(res => {
+        console.log(res.data)
+      })
+      .catch(error => {
+        console.error(error)
+      })
   }
 }
 

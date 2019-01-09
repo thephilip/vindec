@@ -1,6 +1,7 @@
+
 {
   "name": "vindec",
-  "version": "2.6.4",
+  "version": "2.7.0",
   "description": "VIN Decoder",
   "main": "index.js",
   "scripts": {},
@@ -11,12 +12,14 @@
   ],
   "author": {
     "name": "Philip Smith",
-    "email": "thephilipsmith+npm@gmail.com"
+    "email": "thephilipsmith@gmail.com"
   },
   "homepage": "https://github.com/thephilip/vindec",
   "bugs": "https://github.com/thephilip/vindec/issues",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.18.0",
+    "node-fetch": "^2.3.0",
     "vindec-validator": "^1.1.3"
   }
 }

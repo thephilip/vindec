@@ -18,7 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^3.1.1",
     "vindec-validator": "^1.1.3"
   }
 }

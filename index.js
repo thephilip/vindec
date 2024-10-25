@@ -1,6 +1,6 @@
 
-const lib = require('./lib')
-const api = require('./lib/nhtsa.js')
+const { validate, sanitize, getRegion, getMake, getYear} = require('./lib')
+const { uri, action, format } = require('./lib/nhtsa.js')
 const axios = require('axios')
 
 class Vindec {
@@ -27,16 +27,9 @@ class Vindec {
           sequence_id: vin.slice(11,17)
       }) : { vin: vin, valid: false }
   }
-  nhtsaDecode(vin) {
+ async nhtsa(vin) {
     let uri = `${api.uri}${api.action}${vin}${api.format.json}`
-
-    axios.get(uri)
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(error => {
-        console.error(error)
-      })
+    return axios.get(uri)
   }
 }
 

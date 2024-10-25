@@ -3,7 +3,13 @@
   "version": "2.7.2",
   "description": "VIN Decoder",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "always-testy": "true",
+    "test": "jest",
+    "prepublish": "npm run build",
+    "build": "webpack --config webpack.config.js",
+    "start": "node index.js"
+  },
   "keywords": [
     "vin",
     "decoder",

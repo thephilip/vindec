@@ -4,3 +4,8 @@ node_modules/
 lib/nhtsa-data/
 yarn.lock
 yarn-error.log
+llm_response-2.js
+output.json
+test.js
+.arena_temp/llm_response1.txt
+.arena_temp/llm_response2.txt

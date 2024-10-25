@@ -1,12 +1,15 @@
 # vindec
-###### Node.js VIN decoding package.
 
-## Installation
+## Node.js VIN decoding package
+
+### Installation
+
 [![NPM](https://nodei.co/npm/vindec.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vindec/)
 
 If you prefer the previous version of this module, please use `npm install vindec@1.1.1`.  The current version creates a constructor, but the functionality is the same.
 
-## Usage
+### Usage
+
 ```javascript
 
 const vindec = require('vindec');
@@ -17,7 +20,8 @@ console.log(JSON.stringify(vindec.decode('meh'))) // { vin: 'meh', valid: false 
 
 You may optionally add a callback as a second argument to decode for error checking as in the past, but it has been simplified and will always return an object.
 
-## Information Decoded
+### Information Decoded
+
 ```javascript
 { vin: '12345678901234567',
   valid: true,
@@ -31,10 +35,23 @@ You may optionally add a callback as a second argument to decode for error check
   sequence_id: '234567' }
 ```
 
-## NHTSA Decode (alpha)
-There is a new vindec method, nhtsaDecode, that is currently in alpha stage (barely working).  It currently fetches the JSON decoded information from the NHTSA api, but it's truncated.  It likely needs to stream the data and I would also like to allow for the fetching of different repsonse formats (i.e.: json, xml, csv).  If anyone would like to help, I'll be opening issues for each of these features.
+### NHTSA API Calls
 
-## Usage
+Fetches the vehicle information from the NHTSA api. As a bonus, there is an opportunity to utilize the error responses from their api to provide better error handling to vindec in the future.
+
+#### NHTSA API Documentation
+You may read the official [NHTSA API documentaiton site](https://vpic.nhtsa.dot.gov/api/). Additionally, if you're feeling squirrelly and want to hit other endpoints, feel free to modify `./lib/nhtsa.js` to your liking, I may add/change somethings here in the future, be forewarned.
+
+#### Usage (test)
+
 ```javascript
-  console.log(vindec.nhtsaDecode('11111111111111111'))
-```
+
+  const vin = '1G1BC53X76F123456' // example
+  const vindec = new Vindec()
+
+  vindec.nhtsa(vin).then(res => {
+    console.log(res.data)
+  }).catch(err => {
+    console.error(err)
+  })
+  ```
